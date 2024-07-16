@@ -31,7 +31,7 @@ async def about(interaction: discord.Interaction):
 @bot.event
 async def on_ready():
   try:
-    for filename in os.listdir("walmart-invite-tracker/cogs"):
+    for filename in os.listdir("./cogs"):
       if filename.endswith(".py"):
         try:
           await bot.load_extension(f"cogs.{filename[:-3]}")

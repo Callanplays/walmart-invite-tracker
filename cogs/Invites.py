@@ -7,7 +7,7 @@ class Invites(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
-        self.invite_data_file = './invite_data.json'  # JSON file to store invite data
+        self.invite_data_file = 'invite_data.json'  # JSON file to store invite data
         self.update_invite_roles.start() # Start the task loop
         print('Invite Updating Loop started successfully')
         # Initialize invite data file if not exists
