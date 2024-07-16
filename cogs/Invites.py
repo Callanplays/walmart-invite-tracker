@@ -38,7 +38,7 @@ class Invites(commands.Cog):
             invite_data = json.load(f)
         return invite_data
 
-    @discord.app_commands.command(name='invites', description='Display invited users and their invite count')
+    @discord.app_commands.command(name='invites', description='Display users with an active invite link and their invite count')
     async def invited_count(self, interaction: discord.Interaction):
         await interaction.response.send_message("Fetching invited people data...")
         guild = interaction.guild
