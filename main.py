@@ -31,6 +31,7 @@ async def about(interaction: discord.Interaction):
 @bot.event
 async def on_ready():
   try:
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     for filename in os.listdir("./cogs"):
       if filename.endswith(".py"):
         try:
