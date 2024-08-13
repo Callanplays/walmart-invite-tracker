@@ -2,10 +2,7 @@ import discord
 import os
 from discord.ext import tasks, commands
 from discord.utils import get
-from dotenv import load_dotenv
 import json
-load_dotenv()
-TOKEN = os.environ["TOKEN"]
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
 invite_data_file = 'invite_data.json' 
@@ -58,6 +55,14 @@ async def update_invite_roles():
     member = guild.get_member(int(user_id))
     if member:
       invites_count = data['invites_count']
+      if invites_count >= 1:
+        role = discord.utils.get(guild.roles, id=1273004175873151058)  
+        if role not in member.roles:
+          await member.add_roles(role)
+      if invites_count >= 2:
+        role = discord.utils.get(guild.roles, id=1273004199373832202)  
+        if role not in member.roles:
+          await member.add_roles(role)
       if invites_count >= 3:
         role = discord.utils.get(guild.roles, id=1262571225872470087)  
         if role not in member.roles:
@@ -103,4 +108,4 @@ async def on_ready():
   except Exception as e:
     print(e)
 
-bot.run(TOKEN)
+bot.run("TOKEN REDACTED")
